@@ -1,0 +1,21 @@
+<% @tweets.each do |tweet| %>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="#fff8e1 amber lighten-5">
+        <div class="card-content orange-text">
+          <%= simple_format(tweet.text) %>
+          <span class="name"><%= tweet.name %></span>
+        </div>
+      <div class="card-action">
+        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <a style="color:#FF3399; display:inline-block;"><%=  button_to '削除', "/tweets/#{tweet.id}", method: :delete %></a>
+        <a style="color:#FF3399; display:inline-block;"><%=  button_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+<%= paginate(@tweets) %>

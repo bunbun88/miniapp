@@ -1,0 +1,9 @@
+<div class="contents row">
+  <%= form_for @tweet do |f| %>
+  <%= f.label :名前 %>
+  <%= f.text_field :name %>
+  <%= f.label :内容 %>
+  <%= f.text_area :text %>
+  <%= f.submit "投稿する" %>
+<% end %>
+</div>
